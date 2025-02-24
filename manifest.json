@@ -5,7 +5,8 @@
 	"name": "ECharts Widget",
 	"namespace": "EchartsWidget",
 	"version": "1.0",
-	"author": "Zabbix Community",
+	"author": "Monzphere.com",
+	"url": "monzphere.com",
 	"actions": {
 		"widget.echarts.view": {
 			"class": "WidgetView"
