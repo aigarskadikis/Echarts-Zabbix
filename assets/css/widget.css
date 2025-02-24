@@ -1,0 +1,26 @@
+div.dashboard-widget-lesson_gauge_chart {
+    display: grid;
+    grid-template-rows: 1fr;
+    padding: 0;
+}
+
+div.dashboard-widget-lesson_gauge_chart .chart {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+div.dashboard-widget-lesson_gauge_chart .chart canvas {
+    background: white;
+}
+
+div.dashboard-widget-lesson_gauge_chart .description {
+    padding-bottom: 8px;
+    font-size: 1.750em;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.dashboard-grid-widget-hidden-header div.dashboard-widget-lesson_gauge_chart .chart {
+    margin-top: 8px;
+}
