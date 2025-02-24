@@ -1,4 +1,4 @@
-# Widget ECharts para Zabbix
+# Widget ECharts para Zabbix - [Monzphere](https://monzphere.com)
 
 Este módulo adiciona um widget personalizável ao Zabbix que permite criar gráficos interativos usando a biblioteca ECharts.
 
