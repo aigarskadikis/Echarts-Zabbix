@@ -12,7 +12,8 @@ This module adds a customizable widget to Zabbix that allows creating interactiv
 
 ## 📊 Chart Examples
 
-### 1. Gauge (Basic)
+### Gauge (Basic)
+![image](https://github.com/user-attachments/assets/1456485b-bb2c-4021-b7cd-2becb25b8842)
 
 ```javascript
 const field = context.panel.data.series[0].fields[0];
@@ -60,7 +61,52 @@ return {
 };
 ```
 
-### 2. Multi-Level Gauge
+### Liquid Chart
+
+![image](https://github.com/user-attachments/assets/581a5898-654b-4911-a50b-74c615ffe66e)
+
+
+```javacript
+// Verifica se temos dados
+if (!context.panel.data.series || !context.panel.data.series[0] || !context.panel.data.series[0].fields) {
+    console.error('Dados não disponíveis no formato esperado');
+    return {};
+}
+
+const field = context.panel.data.series[0].fields[0];
+
+// Log para debug
+console.log('Campo selecionado:', {
+    nome: field.name,
+    valor: field.value,
+    unidade: field.units
+});
+
+return {
+    backgroundColor: 'transparent',
+    series: [{
+        type: 'liquidFill',
+        data: [field.value / 100],
+        radius: '80%',
+        color: ['#91cc75'],
+        backgroundStyle: {
+            color: 'rgba(255, 255, 255, 0.1)'
+        },
+        label: {
+            formatter: function() {
+                return field.name + '\n' + field.value.toFixed(2) + field.units;
+            },
+            fontSize: 28,
+            color: 'black'
+        },
+        outline: {
+            show: false
+        }
+    }]
+};
+```
+
+### Multi-Level Gauge
 
 ```javascript
 // write or paste code here
@@ -181,9 +227,9 @@ return {
 };
 ```
 
-Use https://www.minifier.org/ to shrink code
+use https://www.minifier.org/ to shrink
 
-### 3. Bar Chart with Gradient
+### Bar Chart with Gradient
 
 ```javascript
 const field = context.panel.data.series[0].fields[0];
@@ -226,7 +272,7 @@ return {
 };
 ```
 
-### 4. Area Chart with Gradient
+### Area Chart with Gradient
 
 ```javascript
 const field = context.panel.data.series[0].fields[0];
@@ -266,7 +312,8 @@ return {
 };
 ```
 
-### 5. Pie Chart
+### Pie Chart
+![image](https://github.com/user-attachments/assets/505c7043-3b2b-4666-b9ea-d978080bca6e)
 
 ```javascript
 const field = context.panel.data.series[0].fields[0];
