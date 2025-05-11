@@ -547,7 +547,6 @@ class WidgetEcharts extends CWidget {
 	            let minutes = numValue / 60;
 		    let remainMinutes = numValue % 60;
 
-		    //return minutes.toFixed(0) + 'm' + remainMinutes.toFixed(0) + 's';
 		    return minutes.toFixed(0) + 'm';
 		    }
 
@@ -1589,6 +1588,25 @@ class WidgetEcharts extends CWidget {
                     
                     return formattedValue.toFixed(2) + ' ' + sizeUnits[unitIndex];
                 }
+		// if units are 's'
+		else if (units === 's') {
+			                    if (numValue > 60) {
+
+                    let minutes = numValue / 60;
+                    let remainMinutes = numValue % 60;
+
+                    return minutes.toFixed(0) + 'm';
+                    }
+
+                    if (numValue < 1) {
+                            return numValue.toFixed(3)*1000 + 'ms';
+                    }
+
+                    return numValue.toFixed(0) + 's';
+
+		}
+
+
                 // Se a unidade for %, mantém como percentual
                 else if (units === '%') {
                     return numValue.toFixed(2) + '%';
