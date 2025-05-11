@@ -542,7 +542,21 @@ class WidgetEcharts extends CWidget {
             }
 
 	    if (units === 's') {
-		    return numValue.toFixed(1) + 's';
+		    if (numValue > 60) {
+
+	            let minutes = numValue / 60;
+		    let remainMinutes = numValue % 60;
+
+		    //return minutes.toFixed(0) + 'm' + remainMinutes.toFixed(0) + 's';
+		    return minutes.toFixed(0) + 'm';
+		    }
+
+		    if (numValue < 1) {
+			    return numValue.toFixed(3)*1000 + 'ms';
+		    }
+
+		    return numValue.toFixed(0) + 's';
+
 	    }
 
             // Para valores muito grandes ou muito pequenos, usa notação científica
