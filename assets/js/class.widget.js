@@ -551,7 +551,7 @@ class WidgetEcharts extends CWidget {
 		    }
 
 		    if (numValue < 1) {
-			    return numValue.toFixed(3)*1000 + 'ms';
+			    return numValue.toFixed(2);
 		    }
 
 		    return numValue.toFixed(0) + 's';
@@ -1599,7 +1599,7 @@ class WidgetEcharts extends CWidget {
                     }
 
                     if (numValue < 1) {
-                            return numValue.toFixed(3)*1000 + 'ms';
+                            return numValue.toFixed(2);
                     }
 
                     return numValue.toFixed(0) + 's';
