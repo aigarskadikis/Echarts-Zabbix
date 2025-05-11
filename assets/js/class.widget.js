@@ -486,6 +486,8 @@ class WidgetEcharts extends CWidget {
         return thresholds[thresholds.length - 1].color;
     }
 
+	// _formatValueWithUnits(value, units, value_type) {
+
     _formatValueWithUnits(value, units) {
         try {
             if (value === null || value === undefined) {
@@ -539,10 +541,16 @@ class WidgetEcharts extends CWidget {
                 return numValue.toFixed(2) + '%';
             }
 
+	    if (units === 's') {
+		    return numValue.toFixed(1) + 's';
+	    }
+
             // Para valores muito grandes ou muito pequenos, usa notação científica
             if (Math.abs(numValue) >= 1000000 || Math.abs(numValue) <= 0.01) {
                 return numValue.toExponential(2) + ' ' + units;
             }
+
+
 
             // Para outros casos, mantém o número com 2 casas decimais e a unidade original
             return numValue.toFixed(2) + ' ' + units;
@@ -572,7 +580,7 @@ class WidgetEcharts extends CWidget {
 
         const chartOptions = {
             grid: {
-                left: '25%',
+                left: '20%',
                 right: '5%',
                 bottom: chartData.length > itemsPerPage ? '30px' : '10px',
                 top: '0',
