@@ -572,7 +572,7 @@ class WidgetEcharts extends CWidget {
 
         const chartOptions = {
             grid: {
-                left: '15%',
+                left: '25%',
                 right: '5%',
                 bottom: chartData.length > itemsPerPage ? '30px' : '10px',
                 top: '0',
