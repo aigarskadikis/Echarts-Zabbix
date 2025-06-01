@@ -1452,7 +1452,7 @@ class WidgetEcharts extends CWidget {
             text-align: left;
             border-bottom: 1px solid var(--border-color);
             z-index: 1;
-            width: ${nameColumnWidth};
+
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -1497,7 +1497,7 @@ class WidgetEcharts extends CWidget {
                 text-align: right;
                 border-bottom: 1px solid var(--border-color);
                 z-index: 1;
-                width: ${metricColumnWidth};
+
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
