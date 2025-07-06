@@ -1355,17 +1355,23 @@ class WidgetEcharts extends CWidget {
         const columnUnits = this._fields_values.column_units || { columns: [], units: [] };
 
         data.fields.forEach(field => {
+	    const hostName = field.host;
+		// item name should contain pattern ': '
             const parts = field.name.split(': ');
+		// if it's impossible to have 2 parts (before ': ') and after this patter, then go to next field
             if (parts.length < 2) return;
 
             const metricName = parts[parts.length - 1];
+            //const entityName = hostName+' '+parts.slice(0, -1).join(': ');
             const entityName = parts.slice(0, -1).join(': ');
 
             metrics.add(metricName);
 
+
             if (!lldData.has(entityName)) {
                 lldData.set(entityName, new Map());
             }
+
 
             lldData.get(entityName).set(metricName, {
                 value: field.value,
